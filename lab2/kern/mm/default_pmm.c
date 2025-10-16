@@ -62,7 +62,7 @@ static free_area_t free_area;
 static void
 default_init(void) {
     list_init(&free_list);
-    nr_free = 0;
+    nr_free = 0;//nr_free可以理解为在这里可以使用的一个全局变量，记录可用的物理页面数
 }
 
 static void

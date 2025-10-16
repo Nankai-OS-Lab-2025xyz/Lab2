@@ -41,7 +41,7 @@ struct Page {
 /* Flags describing the status of a page frame */
 #define PG_reserved                 0       // if this bit=1: the Page is reserved for kernel, cannot be used in alloc/free_pages; otherwise, this bit=0 
 #define PG_property                 1       // if this bit=1: the Page is the head page of a free memory block(contains some continuous_addrress pages), and can be used in alloc_pages; if this bit=0: if the Page is the the head page of a free memory block, then this Page and the memory block is alloced. Or this Page isn't the head page.
-
+//这几个对page操作的宏用到了atomic.h的原子操作
 #define SetPageReserved(page)       ((page)->flags |= (1UL << PG_reserved))
 #define ClearPageReserved(page)     ((page)->flags &= ~(1UL << PG_reserved))
 #define PageReserved(page)          (((page)->flags >> PG_reserved) & 1)

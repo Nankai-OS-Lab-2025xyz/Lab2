@@ -29,7 +29,7 @@ static inline void list_del_init(list_entry_t *listelm) __attribute__((always_in
 static inline bool list_empty(list_entry_t *list) __attribute__((always_inline));
 static inline list_entry_t *list_next(list_entry_t *listelm) __attribute__((always_inline));
 static inline list_entry_t *list_prev(list_entry_t *listelm) __attribute__((always_inline));
-
+//下面两个函数仅在内部使用，不对外开放作为接口。
 static inline void __list_add(list_entry_t *elm, list_entry_t *prev, list_entry_t *next) __attribute__((always_inline));
 static inline void __list_del(list_entry_t *prev, list_entry_t *next) __attribute__((always_inline));
 

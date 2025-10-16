@@ -27,8 +27,10 @@ void print_kerninfo(void) {
 
 int kern_init(void) {
     extern char edata[], end[];
+    // 先清零 BSS，再读取并保存 DTB 的内存信息，避免被清零覆盖
     memset(edata, 0, end - edata);
     dtb_init();
+    // 其他初始化
     cons_init();  // init the console
     const char *message = "(THU.CST) os is loading ...\0";
     //cprintf("%s\n\n", message);
